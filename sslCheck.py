@@ -74,7 +74,6 @@ def print_basic_info(hostinfo):
             notbefore=hostinfo.cert.not_valid_before,
             notafter=hostinfo.cert.not_valid_after
     )
-    print(s)
 
 def verifyExpTime(cert, hostname):
     # verify notAfter/notBefore, CA trusted, servername/sni/hostname
@@ -96,9 +95,7 @@ def verifyExpTime(cert, hostname):
 def CheckSSLExp(hostname, port):
     try:
         hostinfo = get_certificate(hostname, port)
-        print_basic_info(hostinfo)
         errors = verifyExpTime(hostinfo.cert, hostname)
-        print(errors)
         return errors
     except:
         pass

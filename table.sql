@@ -1,0 +1,1 @@
+create table domain_fin (orgName VARCHAR(200), regNumber INT, domen VARCHAR(200))

@@ -1,10 +1,14 @@
 import socket
+from requests.exceptions import Timeout
 import whois
 import requests
 import time
 import datetime
 from sslCheck import CheckSSLExp
 from tls import getTLSVersion
+import pymysql.cursors  
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 def getTimestamp(year, month, day):
     d = datetime.date(year,month,day)
@@ -13,6 +17,11 @@ def getTimestamp(year, month, day):
 
 # Функция поиска DNS-записи
 def dnsResolve(domain):
+    try: 
+        domain.index('/')
+        domain = domain[:domain.index('/')]
+    except ValueError:
+        pass
     try: 
         # Запись успешно нашлась
         domainInfo = socket.gethostbyname_ex(domain)
@@ -23,57 +32,37 @@ def dnsResolve(domain):
         return []
 
 # Функция дублирующая nc
-def netcat(hostname, port):
-
+def netcat(orgName, regNumber,hostname, port):
+    initialHostname = hostname
+    try: 
+        hostname.index('/')
+        hostname = hostname[:hostname.index('/')]
+    except ValueError:
+        pass
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.settimeout(5)
     try: 
         s.connect((hostname, port))
     except:
-        print("Не поднимается коннект по порту")
-        return {'ресурс': hostname, 'port': port, 'issue': 'Не поднимается коннект по порту'} 
+        # print("Не поднимается коннект по порту")
+        return {'Организация': orgName, 'ресурс': {initialHostname}, 'Рег. номер': regNumber, 'port': '443', 'issue': 'Не поднимается коннект по 443 порту'} 
+       
     s.settimeout(None)
-    # s.sendall(bytes(content, encoding = 'utf-8'))
-    # s.send("Hello Client!".encode())
-    # s.shutdown(socket.SHUT_WR)
-
-    # data = s.recv(1024)
-    # if data == "":
-    #     return {'ресурс': hostname, 'port': port, 'issue': 'Пустой ответ от ресурса'} 
-    # # print ("Received:", repr(data))
-    # # print ("Connection closed")
     s.close()
 
-def getWebPage(hostname):
-    # requestStrinf = f'GET / HTTP/1.1\nHost: {hostname}\n\n'
-    # request = f'GET / HTTP/1.1\nHost: {hostname}\n\n'.encode()
-    request = b"GET / HTTP/1.1\nHost: stackoverflow.com\n\n"
-    print(request)
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.connect(("stackoverflow.com", 80))
-    s.send(request)
-    result = s.recv(10000)
-    while (len(result) > 0):
-        print(result)
-        result = s.recv(10000)  
-
 # Запрашивает ресурс и выдает ошибку, если такая была при запросе веб-страницы
-def checkHttpError(hostname=None, verifySSL=True): # hostname = https://...
+def checkHttpError(orgName, regNumber, port, hostname=None, verifySSL=True): # hostname = https://...
     try:
         headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
-        response = requests.get(hostname, verify=verifySSL, headers=headers)
+        response = requests.get(hostname, verify=verifySSL, headers=headers, timeout=5)
         response.raise_for_status()
 
-    except requests.HTTPError as exception:
-        return {'ресурс': hostname, 'port': 443, 'issue': f'{exception}'} 
+    except (requests.exceptions.SSLError, requests.HTTPError, requests.exceptions.Timeout) as exception:
+        return {'Организация': orgName, 'ресурс': hostname, 'Рег. номер': regNumber, 'port': port, 'issue': f'{exception}'} 
 
-# Важно: ЦБ (cbr.ru) не перекидывает с HTTP на HTTPS
-# checkHttpError('https://www.cbr.ru/1141241')
-# dnsResolve('mail.ru')
-# netcat('mail.ru', 80)
-
-def whoIs(hostname=None ):
+def whoIs(orgName, regNumber, hostname=None ):
     w = whois.whois(hostname)
+    # print(w)
     expDate = str(w["expiration_date"])
     timeMassiv = expDate.split()[0].split('-')
     year, month, day = range(3)
@@ -81,24 +70,24 @@ def whoIs(hostname=None ):
     currentTime = int(time.time()) # Текущее время
     expTime = getTimestamp(int(timeMassiv[year]),int(timeMassiv[month]),int(timeMassiv[day]))
     if currentTime > expTime:
-        return {'ресурс': hostname, 'port': '', 'issue': 'Срок аренды домена истек'} 
+        return {'Организация': orgName, 'ресурс': hostname, 'Рег. номер': regNumber, 'port': '', 'issue': 'Срок аренды домена истек'} 
 
 
-def main():
-    hostname = 'sberbank.ru'
-    port = 443
+def main(hostname, orgName, regNumber, port=443):
+    # print(regNumber, hostname)
     verifySSL = True
     errors = []
     # 1. Проверяем резолвится ли ресурс и поднимается ли коннект по порту (443)
     if dnsResolve(hostname) == []:
         print("Ресурс не резолвится")
-        errors.append({'ресурс': hostname, 'port': '', 'issue': 'Не резолвится DNS-запись'})
+        errors.append({'Организация': orgName, 'ресурс': hostname, 'Рег. номер': regNumber, 'port': '', 'issue': 'Не найдена А-запись домена'})
+        print(errors)
         return errors
-
     # пытаемся достучаться до ресурса по порту, елси нет --> выход
-    netcatResult = netcat(hostname, port)
+    netcatResult = netcat(orgName, regNumber, hostname, port)
     if netcatResult is not None:
         errors.append(netcatResult)
+        print(errors)
         return errors
 
     # Проверка не просрочен ли сертификат
@@ -106,37 +95,67 @@ def main():
     if checkSSLErrors is not None:
         errors.append(checkSSLErrors)
         verifySSL = False # необходимо чтобы requests в checkHttpError запросил ресурс
-    
+
     # Проверка на самоподписанный и крипту в серте
     try:
         headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
-        requests.get('https://'+hostname, headers=headers)
-    except requests.exceptions.SSLError as instance:
-        # print(instance.args[0].reason.args[0].reason)
-        # print(instance.args[0].reason.args[0].strerror)
         
-        errors.append({'ресурс': hostname, 'port': '', 'issue': f'{instance.args[0].reason.args[0].strerror}'})
+        requests.get('https://'+hostname, headers=headers, timeout=5)
+    except (requests.exceptions.SSLError, requests.exceptions.TooManyRedirects, requests.exceptions.Timeout) as instance:
+        errors.append({'Организация': orgName, 'ресурс': hostname, 'Рег. номер': regNumber,'port': '', 'issue': f'{instance}'})
         verifySSL = False
 
     # 2. Проверяем ошибки при запросе к веб-странице в HTTP (403, 500 etc)
     if verifySSL:
-        httpErrorsResult = checkHttpError('https://'+hostname, verifySSL)
+        httpErrorsResult = checkHttpError(orgName, regNumber, 443, 'https://'+hostname, verifySSL)
         if httpErrorsResult is not None:
-            errors.append(httpErrorsResult)
-    
+            if errors.count(httpErrorsResult) != 0:
+                errors.append(httpErrorsResult)
+    else: 
+        httpErrorsResult = checkHttpError(orgName, regNumber, 80, 'http://'+hostname, verifySSL)
+        if httpErrorsResult is not None:
+            if errors.count(httpErrorsResult) != 0:
+                errors.append(httpErrorsResult)
+
     # 3. Проверяем истек ли срок аренды домена
-    whoIsResult = whoIs(hostname)
-    if whoIsResult is not None:
-        errors.append(whoIsResult)
+    try:
+        whoIsResult = whoIs(orgName, regNumber, hostname)
+        if whoIsResult is not None:
+            errors.append(whoIsResult)
+    except:
+        pass
 
     # Проверка на SSLv3, TLSv1, TLSv1.1
     if verifySSL:
         try:
             currentTLS = getTLSVersion(hostname)
             if currentTLS == "SSLv3" or currentTLS == "TLSv1" or currentTLS == "TLSv1.1":
-                errors.append({'ресурс': hostname, 'port': '', 'issue': f'Используется устаревший метод шифрования канала {currentTLS}'})
+                errors.append({'Организация': orgName, 'ресурс': hostname, 'Рег. номер': regNumber, 'issue': f'Используется устаревший метод шифрования канала {currentTLS}'})
         except:
-            print("балуемся Lets encrypt") # TODO Внести как предупреждение о том, что уровень серта не очень для ФО
-    print(errors)
+            pass
+            #errors.append({'Организация': orgName, 'ресурс': hostname, 'Рег. номер': regNumber, 'port': '', 'issue': "Сертификат выпущен УЦ R3 (Let's encrypt)'"}) # TODO Внести как предупреждение о том, что уровень серта не очень для ФО
+    if errors != []:
+        print(errors)
+    return errors
 
-main()
+def checkFromSQL():
+    connection = pymysql.connect(host='',
+                             user='',
+                             password='',                             
+                             db='',
+                             charset='utf8mb4',
+                             cursorclass=pymysql.cursors.DictCursor)
+
+    with connection.cursor() as cursor:
+        sql = f"""select * from domain_fin"""
+        cursor.execute(sql)
+        mould = [row for row in cursor]
+
+    for resource in mould:
+        main(resource['domen'], resource['orgName'], resource['regNumber'])
+
+# Берем инфу из бд и проверяем все ресурсы
+# checkFromSQL()
+
+# пример одного запроса
+# main('1000-sans.badssl.com', 'Ресурс', 123)

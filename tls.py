@@ -6,7 +6,7 @@ def getTLSVersion(hostname):
     with socket.create_connection((hostname, 443)) as sock:
         # print(sock)
         with context.wrap_socket(sock, server_hostname=hostname) as ssock:
-            print(ssock.version())
+            # print(ssock.version())
             return str(ssock.version())
 
 

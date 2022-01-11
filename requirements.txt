@@ -1,2 +1,6 @@
 python-whois
 pyOpenSSL
+bs4
+pandas
+multiprocessing
+PyMySQL
