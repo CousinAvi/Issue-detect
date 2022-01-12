@@ -1,4 +1,3 @@
-from enum import unique
 import platform    # For getting the operating system name
 import subprocess  # For executing a shell command
 import pymysql.cursors  
