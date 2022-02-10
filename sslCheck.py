@@ -75,7 +75,7 @@ def print_basic_info(hostinfo):
             notafter=hostinfo.cert.not_valid_after
     )
 
-def verifyExpTime(cert, hostname):
+def verifyExpTime(orgName, cert, hostname):
     # verify notAfter/notBefore, CA trusted, servername/sni/hostname
     notAfter = str(cert.not_valid_after)
 
@@ -86,16 +86,16 @@ def verifyExpTime(cert, hostname):
     currentTime = int(time.time()) # Текущее время
     notAfterStamp = getTimestamp(int(timeMassiv[year]),int(timeMassiv[month]),int(timeMassiv[day]))
     if currentTime > notAfterStamp:
-        return {'ресурс': hostname, 'port': '', 'issue': 'Сертификат истек, ресурс недоверенный'}
+        return {'Организация': orgName, 'ресурс': hostname, 'port': '', 'issue': 'Сертификат истек, ресурс недоверенный'}
     
 
     # service_identity.pyopenssl.verify_hostname(client_ssl, hostname)
     # issuer
 
-def CheckSSLExp(hostname, port):
+def CheckSSLExp(orgName, hostname, port):
     try:
         hostinfo = get_certificate(hostname, port)
-        errors = verifyExpTime(hostinfo.cert, hostname)
+        errors = verifyExpTime(orgName, hostinfo.cert, hostname)
         return errors
     except:
         pass

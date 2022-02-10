@@ -45,7 +45,7 @@ def netcat(orgName, regNumber,hostname, port):
         s.connect((hostname, port))
     except:
         # print("Не поднимается коннект по порту")
-        return {'Организация': orgName, 'ресурс': {initialHostname}, 'Рег. номер': regNumber, 'port': '443', 'issue': 'Не поднимается коннект по 443 порту'} 
+        return {'Организация': orgName, 'ресурс': initialHostname, 'Рег. номер': regNumber, 'port': '443', 'issue': 'Не поднимается коннект по 443 порту'} 
        
     s.settimeout(None)
     s.close()
@@ -57,7 +57,7 @@ def checkHttpError(orgName, regNumber, port, hostname=None, verifySSL=True): # h
         response = requests.get(hostname, verify=verifySSL, headers=headers, timeout=5)
         response.raise_for_status()
 
-    except (requests.exceptions.SSLError, requests.HTTPError, requests.exceptions.Timeout) as exception:
+    except (requests.exceptions.SSLError, requests.HTTPError, requests.exceptions.Timeout, requests.ConnectionError) as exception:
         return {'Организация': orgName, 'ресурс': hostname, 'Рег. номер': regNumber, 'port': port, 'issue': f'{exception}'} 
 
 def whoIs(orgName, regNumber, hostname=None ):
@@ -91,12 +91,13 @@ def main(hostname, orgName, regNumber, port=443):
         return errors
 
     # Проверка не просрочен ли сертификат
-    checkSSLErrors = CheckSSLExp(hostname, 443)
+    checkSSLErrors = CheckSSLExp(orgName, hostname, 443)
     if checkSSLErrors is not None:
         errors.append(checkSSLErrors)
         verifySSL = False # необходимо чтобы requests в checkHttpError запросил ресурс
 
     # Проверка на самоподписанный и крипту в серте
+    hostname = hostname.replace('www.','')
     try:
         headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
         
@@ -158,4 +159,4 @@ def checkFromSQL():
 # checkFromSQL()
 
 # пример одного запроса
-# main('1000-sans.badssl.com', 'Ресурс', 123)
+# main('transstroybank.ru', 'Ресурс', 123)
