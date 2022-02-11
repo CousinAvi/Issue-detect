@@ -92,11 +92,11 @@ def verifyExpTime(cert, hostname):
     currentTime = int(time.time())  # Текущее время
     notAfterStamp = getTimestamp(int(timeMassiv[year]), int(timeMassiv[month]), int(timeMassiv[day]))
     if currentTime > notAfterStamp:
-        return {'ресурс': hostname, 'port': '', 'issue': 'Сертификат истек, ресурс недоверенный'}
+        return {'service': hostname, 'port': '', 'issue': 'Сертификат истек, ресурс недоверенный'}
 
 
 
-def CheckSSLExp(hostname, port):
+def CheckSSLExp(org_name, hostname, port):
     try:
         hostinfo = get_certificate(hostname, port)
         errors = verifyExpTime(hostinfo.cert, hostname)

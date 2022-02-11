@@ -7,8 +7,6 @@ services:
       - .env
     volumes:
       - db_data:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
     networks:
       - magnitogorsk
 
@@ -18,7 +16,7 @@ services:
       - .env
     networks:
       - magnitogorsk
-    ports:
+    ports: 
       - "80:80"
 
 networks:

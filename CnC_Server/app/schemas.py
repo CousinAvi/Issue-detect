@@ -23,6 +23,6 @@ class Organization(BaseModel):
 
 class MlEvent(BaseModel):
     company: str
-    service: str
-    reason: str
+    service: Optional[str] = "Нет данных"
+    reason: Optional[str] = "Нет данных"
     comment: str

@@ -27,7 +27,7 @@ app = FastAPI(redoc_url="/api/redoc")
 models.Base.metadata.create_all(bind=engine)
 
 WEBHOOK_PATH = f"/bot/5173732024:AAFY-kMYgBySve6ILTpsY2LEnwtbeuPoKtQ"
-WEBHOOK_URL = "https://a9f9-77-34-89-213.ngrok.io" + WEBHOOK_PATH
+WEBHOOK_URL = "https://detect.site" + WEBHOOK_PATH
 
 
 @app.on_event("startup")
@@ -39,7 +39,7 @@ async def on_startup():
         )
 
 
-@app.post(WEBHOOK_PATH)
+@app.post(WEBHOOK_PATH, include_in_schema=False)
 async def bot_webhook(update: dict):
     telegram_update = types.Update(**update)
     Dispatcher.set_current(dp)

@@ -99,12 +99,13 @@ def main(hostname, orgName, regNumber, port=443):
         return errors
 
     # Проверка не просрочен ли сертификат
-    checkSSLErrors = CheckSSLExp(hostname, 443)
+    checkSSLErrors = CheckSSLExp(orgName, hostname, 443)
     if checkSSLErrors is not None:
         errors.append(checkSSLErrors)
         verifySSL = False  # необходимо чтобы requests в checkHttpError запросил service
 
     # Проверка на самоподписанный и крипту в серте
+    hostname = hostname.replace('www.', '')
     try:
         headers = {
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
