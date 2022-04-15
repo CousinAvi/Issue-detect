@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 def find_iframe(link):
     driver = webdriver.Chrome()
     driver.get(link)
-    driver.implicitly_wait(0.5)
+    driver.implicitly_wait(3)
     iframe_list = driver.find_elements(By.TAG_NAME, 'iframe')
     if len(iframe_list) > 0:
         iframe_links_list = []
