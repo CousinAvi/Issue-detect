@@ -56,3 +56,13 @@ class MlEvent(Base):
     service = Column(String)
     reason = Column(String)
     timestampe = Column(DateTime, server_default=func.now())
+
+
+class Logs(Base):
+    __tablename__ = "bot_logs"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    bank_name = Column(String)
+    url = Column(String)
+    log = Column(String)
+    timestamp = Column(DateTime, server_default=func.now())

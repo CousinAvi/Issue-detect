@@ -1,0 +1,94 @@
+{
+  "issues": [{
+      "Организация": "АО КБ 'ВАКОБАНК'",
+      "ресурс": "www.vakobank.com",
+      "Рег. номер": 1291,
+      "port": "",
+      "issue": "HTTPSConnectionPool(host=\"www.vakobank.com\", port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError('hostname \"www.vakobank.com\" doesn\"t match either of \"*.mart.ru\", \"mart.ru\"')))"
+    },
+    {
+      "Организация": "АО КБ 'ВАКОБАНК'",
+      "ресурс": "www.вакобанк.рф",
+      "Рег. номер": 1291,
+      "port": "",
+      "issue": "HTTPSConnectionPool(host=\"www.xn--80aacc5bcuf.xn--p1ai\", port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError('hostname \"www.xn--80aacc5bcuf.xn--p1ai\" doesn\"t match either of \"*.mart.ru\", \"mart.ru\"')))"
+    },
+    {
+      "Организация": "АО КБ 'ВАКОБАНК'",
+      "ресурс": "вакобанк.рф",
+      "Рег. номер": 1291,
+      "port": "",
+      "issue": "HTTPSConnectionPool(host=\"xn--80aacc5bcuf.xn--p1ai\", port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError('hostname \"xn--80aacc5bcuf.xn--p1ai\" doesn\"t match either of \"*.mart.ru\", \"mart.ru\"')))"
+    },
+    {
+      "Организация": "ПАО 'Донкомбанк'",
+      "ресурс": "donkombank.ru",
+      "Рег. номер": 492,
+      "port": "",
+      "issue": "HTTPSConnectionPool(host=\"donkombank.ru\", port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError('hostname \"donkombank.ru\" doesn\"t match \"ibank.doncombank.ru\"')))"
+    },
+    {
+      "Организация": "АО 'ПЕРВОУРАЛЬСКБАНК'",
+      "ресурс": "бибикэш.com",
+      "Рег. номер": 965,
+      "port": "443",
+      "issue": "Не поднимается коннект по 443 порту"
+    },
+    {
+      "Организация": "АО 'ПЕРВОУРАЛЬСКБАНК'",
+      "ресурс": "bibicash.ru",
+      "Рег. номер": 965,
+      "port": "443",
+      "issue": "Не поднимается коннект по 443 порту"
+    },
+    {
+      "Организация": "АО 'ПЕРВОУРАЛЬСКБАНК'",
+      "ресурс": "бибикэш.рус",
+      "Рег. номер": 965,
+      "port": "443",
+      "issue": "Не поднимается коннект по 443 порту"
+    },
+    {
+      "Организация": "АО 'ПЕРВОУРАЛЬСКБАНК'",
+      "ресурс": "bibicash.ru",
+      "Рег. номер": 965,
+      "port": "443",
+      "issue": "Не поднимается коннект по 443 порту"
+    },
+    {
+      "Организация": "КБ 'СИСТЕМА' ООО",
+      "ресурс": "банксистема.рф",
+      "Рег. номер": 2846,
+      "port": "443",
+      "issue": "Не поднимается коннект по 443 порту"
+    },
+    {
+      "Организация": "АО 'Кредит Европа Банк (Россия)'",
+      "ресурс": "d.cebank.ru",
+      "Рег. номер": 3311,
+      "port": "",
+      "issue": "HTTPSConnectionPool(host=\"d.cebank.ru\", port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError('hostname \"d.cebank.ru\" doesn\"t match \"dolg.crediteurope.ru\"')))"
+    },
+    {
+      "Организация": "'СеверСтройБанк' АО",
+      "ресурс": "www.ssb35.ru",
+      "Рег. номер": 3507,
+      "port": "",
+      "issue": "HTTPSConnectionPool(host=\"www.ssb35.ru\", port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError('hostname \"www.ssb35.ru\" doesn\"t match \"bc.ssb35.ru\"')))"
+    },
+    {
+      "Организация": "РНКО 'Платежный Центр' (ООО)",
+      "ресурс": "restaurantpass.ru",
+      "Рег. номер": 3166,
+      "port": "",
+      "issue": "HTTPSConnectionPool(host='restaurantpass.ru', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLError(1, 'SSL: TLSV1_ALERT_INTERNAL_ERROR tlsv1 alert internal error (_ssl.c:1124)')))"
+    },
+    {
+      "Организация": "АйСиБиСи Банк (АО)",
+      "ресурс": "www.icbcmoscow.ru",
+      "Рег. номер": 3475,
+      "port": "443",
+      "issue": "Не поднимается коннект по 443 порту"
+    }
+  ]
+}

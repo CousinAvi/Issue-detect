@@ -1,0 +1,10 @@
+{
+  "issues": [{
+      "Организация": "ООО 'Бланк банк'",
+      "ресурс": "https://deposit.ibv.ru",
+      "Рег. номер": 2368,
+      "port": 443,
+      "issue": "500 Server Error: Internal Server Error for url: https://deposit.ibv.ru/"
+    }
+  ]
+}

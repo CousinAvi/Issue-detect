@@ -1,0 +1,88 @@
+{
+  "issues": [
+    {
+      "Организация": "ПАО 'Совкомбанк'",
+      "ресурс": "doktor.sovcombank.ru",
+      "Рег. номер": 963,
+      "port": "",
+      "issue": "HTTPSConnectionPool(host='doktor.sovcombank.ru', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, 'SSL: CERTIFICATE_VERIFY_FAILED certificate verify failed: certificate has expired (_ssl.c:1124)')))"
+    },
+    {
+      "Организация": "ПАО 'Совкомбанк'",
+      "ресурс": "sovcomplus.ru",
+      "Рег. номер": 963,
+      "port": "",
+      "issue": "HTTPSConnectionPool(host='sovcomplus.ru', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, 'SSL: CERTIFICATE_VERIFY_FAILED certificate verify failed: certificate has expired (_ssl.c:1124)')))"
+    },
+    {
+      "Организация": "Банк ВТБ (ПАО)",
+      "ресурс": "ankety.vtb.ru",
+      "Рег. номер": 1000,
+      "port": "",
+      "issue": "HTTPSConnectionPool(host='ankety.vtb.ru', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, 'SSL: CERTIFICATE_VERIFY_FAILED certificate verify failed: certificate has expired (_ssl.c:1124)')))"
+    },
+    {
+      "Организация": "Банк ВТБ (ПАО)",
+      "ресурс": "accr.vtb.ru",
+      "Рег. номер": 1000,
+      "port": "",
+      "issue": "HTTPSConnectionPool(host='accr.vtb.ru', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, 'SSL: CERTIFICATE_VERIFY_FAILED certificate verify failed: certificate has expired (_ssl.c:1124)')))"
+    },
+    {
+      "Организация": "КИВИ Банк (АО)",
+      "ресурс": "app.rocketbank.ru",
+      "Рег. номер": 2241,
+      "port": "",
+      "issue": "HTTPSConnectionPool(host='app.rocketbank.ru', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, 'SSL: CERTIFICATE_VERIFY_FAILED certificate verify failed: certificate has expired (_ssl.c:1124)')))"
+    },
+    {
+      "Организация": "ПАО 'МОСКОВСКИЙ КРЕДИТНЫЙ БАНК'",
+      "ресурс": "ar2019.mkb.ru",
+      "Рег. номер": 1978,
+      "port": "",
+      "issue": "HTTPSConnectionPool(host='ar2019.mkb.ru', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, 'SSL: CERTIFICATE_VERIFY_FAILED certificate verify failed: certificate has expired (_ssl.c:1124)')))"
+    },
+    {
+      "Организация": "ПАО 'МОСКОВСКИЙ КРЕДИТНЫЙ БАНК'",
+      "ресурс": "sr2019.mkb.ru",
+      "Рег. номер": 1978,
+      "port": "",
+      "issue": "HTTPSConnectionPool(host='sr2019.mkb.ru', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, 'SSL: CERTIFICATE_VERIFY_FAILED certificate verify failed: certificate has expired (_ssl.c:1124)')))"
+    },
+    {
+      "Организация": "ООО 'ПроКоммерцБанк'",
+      "ресурс": "kreditmb.ru",
+      "Рег. номер": 2996,
+      "port": "",
+      "issue": "HTTPSConnectionPool(host='kreditmb.ru', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, 'SSL: CERTIFICATE_VERIFY_FAILED certificate verify failed: certificate has expired (_ssl.c:1124)')))"
+    },
+    {
+      "Организация": "ООО 'ПроКоммерцБанк'",
+      "ресурс": "кредитмб.рф",
+      "Рег. номер": 2996,
+      "port": "",
+      "issue": "HTTPSConnectionPool(host='xn--90afcnhpyt.xn--p1ai', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, 'SSL: CERTIFICATE_VERIFY_FAILED certificate verify failed: certificate has expired (_ssl.c:1124)')))"
+    },
+    {
+      "Организация": "НКО 'РКЦ ДВ' (АО)",
+      "ресурс": "rkcdv.ru",
+      "Рег. номер": 3318,
+      "port": "",
+      "issue": "HTTPSConnectionPool(host='rkcdv.ru', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, 'SSL: CERTIFICATE_VERIFY_FAILED certificate verify failed: certificate has expired (_ssl.c:1124)')))"
+    },
+    {
+      "Организация": "ПАО Банк ЗЕНИТ",
+      "ресурс": "kombank.ru",
+      "Рег. номер": 3255,
+      "port": "",
+      "issue": "HTTPSConnectionPool(host='kombank.ru', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, 'SSL: CERTIFICATE_VERIFY_FAILED certificate verify failed: certificate has expired (_ssl.c:1124)')))"
+    },
+    {
+      "Организация": "ПАО Банк ЗЕНИТ",
+      "ресурс": "www.kombank.ru",
+      "Рег. номер": 3255,
+      "port": "",
+      "issue": "HTTPSConnectionPool(host='www.kombank.ru', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, 'SSL: CERTIFICATE_VERIFY_FAILED certificate verify failed: certificate has expired (_ssl.c:1124)')))"
+    }
+  ]
+}

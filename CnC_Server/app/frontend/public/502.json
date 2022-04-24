@@ -1,0 +1,9 @@
+{
+  "issues": [{
+    "Организация": "ООО 'Бланк банк'",
+    "ресурс": "https://agent.ibv.ru",
+    "Рег. номер": 2368,
+    "port": 443,
+    "issue": "502 Server Error: Bad Gateway for url: https://agent.ibv.ru/"
+  }]
+}

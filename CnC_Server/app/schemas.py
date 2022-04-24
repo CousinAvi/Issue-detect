@@ -1,4 +1,6 @@
 from __future__ import annotations
+
+import datetime
 from typing import Optional, List
 from pydantic import BaseModel
 
@@ -26,3 +28,15 @@ class MlEvent(BaseModel):
     service: Optional[str] = "Нет данных"
     reason: Optional[str] = "Нет данных"
     comment: str
+
+    class Config:
+        orm_mode = True
+
+class Log(BaseModel):
+    bank_name: str
+    url: str
+    log: str
+    timestamp: datetime.datetime
+
+    class Config:
+        orm_mode = True

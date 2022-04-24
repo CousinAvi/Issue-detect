@@ -1,0 +1,522 @@
+{
+    "issues":[
+    {
+    "Организация":"ПАО КБ 'РусьРегионБанк'",
+    "ресурс":"www.rrb.ru",
+    "Рег. номер":685,
+    "port":"",
+    "issue":"HTTPSConnectionPool(host='www.rrb.ru', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLError(1, '[SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1124)')))"
+    },
+    {
+    "Организация":"КБ 'ОБР' (ООО)",
+    "ресурс":"obr1016.ru",
+    "Рег. номер":1016,
+    "port":"",
+    "issue":"HTTPSConnectionPool(host='obr1016.ru', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLError(1, '[SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] sslv3 alert handshake failure (_ssl.c:1124)')))"
+    },
+    {
+    "Организация":"ПАО КБ 'РусьРегионБанк'",
+    "ресурс":"www.rrbank.ru",
+    "Рег. номер":685,
+    "port":"",
+    "issue":"HTTPSConnectionPool(host='www.rrbank.ru', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLError(1, '[SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1124)')))"
+    },
+    {
+    "Организация":"АО КБ 'ВАКОБАНК'",
+    "ресурс":"vakobank.com",
+    "Рег. номер":1291,
+    "port":"",
+    "issue":"HTTPSConnectionPool(host=\"vakobank.com\", port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError('hostname \"vakobank.com\" doesn\"t match either of \"*.mart.ru\", \"mart.ru\"')))"
+    },
+    {
+    "Организация":"ПАО Банк 'АЛЕКСАНДРОВСКИЙ'",
+    "ресурс":"александровский-банк.рф",
+    "Рег. номер":53,
+    "port":"443",
+    "issue":"Не поднимается коннект по 443 порту"
+    },
+    {
+    "Организация":"АО 'БАЛАКОВО-БАНК'",
+    "ресурс":"www.balakovo-bank.ru",
+    "Рег. номер":444,
+    "port":"443",
+    "issue":"Не поднимается коннект по 443 порту"
+    },
+    {
+    "Организация":"АО 'Кубаньторгбанк'",
+    "ресурс":"ktbra.kubantorgbank.ru",
+    "Рег. номер":478,
+    "port":"",
+    "issue":"HTTPSConnectionPool(host='ktbra.kubantorgbank.ru', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLError(1, '[SSL: UNKNOWN_CIPHER_RETURNED] unknown cipher returned (_ssl.c:1124)')))"
+    },
+    {
+    "Организация":"ООО 'РУСБС'",
+    "ресурс":"www.rusbsbank.ru",
+    "Рег. номер":779,
+    "port":"443",
+    "issue":"Не поднимается коннект по 443 порту"
+    },
+    {
+    "Организация":"ПАО Комбанк 'Химик'",
+    "ресурс":"www.bankhimik.ru",
+    "Рег. номер":1114,
+    "port":"443",
+    "issue":"Не поднимается коннект по 443 порту"
+    },
+    {
+    "Организация":"АО Банк 'ТКПБ'",
+    "ресурс":"tkpb.ru",
+    "Рег. номер":1312,
+    "port":"",
+    "issue":"HTTPSConnectionPool(host='tkpb.ru', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1124)')))"
+    },
+    {
+    "Организация":"АО Банк 'ТКПБ'",
+    "ресурс":"www.tkpb.ru",
+    "Рег. номер":1312,
+    "port":"",
+    "issue":"HTTPSConnectionPool(host='www.tkpb.ru', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1124)')))"
+    },
+    {
+    "Организация":"АО КБ 'САММИТ БАНК'",
+    "ресурс":"www.kbsammit.ru",
+    "Рег. номер":85,
+    "port":"443",
+    "issue":"Не поднимается коннект по 443 порту"
+    },
+    {
+    "Организация":"АО 'Великие Луки банк'",
+    "ресурс":"vlb100.ru",
+    "Рег. номер":598,
+    "port":"",
+    "issue":"HTTPSConnectionPool(host='vlb100.ru', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLError(1, '[SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] sslv3 alert handshake failure (_ssl.c:1124)')))"
+    },
+    {
+    "Организация":"АО 'АЛЬФА-БАНК'",
+    "ресурс":"alfabusinessweek.ru",
+    "Рег. номер":1326,
+    "port":"",
+    "issue":"HTTPSConnectionPool(host=\"alfabusinessweek.ru\", port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError('hostname \"alfabusinessweek.ru\" doesn\"t match either of \"*.tilda.ws\", \"tilda.ws\"')))"
+    },
+    {
+    "Организация":"АО 'АЛЬФА-БАНК'",
+    "ресурс":"do.it.alfabank.ru",
+    "Рег. номер":1326,
+    "port":"",
+    "issue":"HTTPSConnectionPool(host=\"do.it.alfabank.ru\", port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError('hostname \"do.it.alfabank.ru\" doesn\"t match either of \"*.tilda.ws\", \"tilda.ws\"')))"
+    },
+    {
+    "Организация":"АО 'АЛЬФА-БАНК'",
+    "ресурс":"www.alfafuture.com",
+    "Рег. номер":1326,
+    "port":"443",
+    "issue":"Не поднимается коннект по 443 порту"
+    },
+    {
+    "Организация":"АО 'АЛЬФА-БАНК'",
+    "ресурс":"www.alfafuture.ru",
+    "Рег. номер":1326,
+    "port":"443",
+    "issue":"Не поднимается коннект по 443 порту"
+    },
+    {
+    "Организация":"АО 'АЛЬФА-БАНК'",
+    "ресурс":"bmapp.alfabank.ru",
+    "Рег. номер":1326,
+    "port":"443",
+    "issue":"Не поднимается коннект по 443 порту"
+    },
+    {
+    "Организация":"АО 'АЛЬФА-БАНК'",
+    "ресурс":"hr.alfabank.ru",
+    "Рег. номер":1326,
+    "port":"443",
+    "issue":"Не поднимается коннект по 443 порту"
+    },
+    {
+    "Организация":"ООО НДКО Лэнд Кредит",
+    "ресурс":"www.landkredit.ru",
+    "Рег. номер":1478,
+    "port":"443",
+    "issue":"Не поднимается коннект по 443 порту"
+    },
+    {
+    "Организация":"АО 'СЕВЗАПИНВЕСТПРОМБАНК'",
+    "ресурс":"www.nwipbank.ru",
+    "Рег. номер":2152,
+    "port":"",
+    "issue":"HTTPSConnectionPool(host='www.nwipbank.ru', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLError(1, '[SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1124)')))"
+    },
+    {
+    "Организация":"ООО КБ 'Альба Альянс'",
+    "ресурс":"www.alal.ru",
+    "Рег. номер":2593,
+    "port":"443",
+    "issue":"Не поднимается коннект по 443 порту"
+    },
+    {
+    "Организация":"АО 'Кросна-Банк'",
+    "ресурс":"crosnabank.com",
+    "Рег. номер":2607,
+    "port":"443",
+    "issue":"Не поднимается коннект по 443 порту"
+    },
+    {
+    "Организация":"АО 'Кросна-Банк'",
+    "ресурс":"crosnabank.ru",
+    "Рег. номер":2607,
+    "port":"",
+    "issue":"HTTPSConnectionPool(host='crosnabank.ru', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLError(1, '[SSL: UNKNOWN_CIPHER_RETURNED] unknown cipher returned (_ssl.c:1124)')))"
+    },
+    {
+    "Организация":"АО 'Кросна-Банк'",
+    "ресурс":"www.crosnabank.ru",
+    "Рег. номер":2607,
+    "port":"",
+    "issue":"HTTPSConnectionPool(host='www.crosnabank.ru', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLError(1, '[SSL: UNKNOWN_CIPHER_RETURNED] unknown cipher returned (_ssl.c:1124)')))"
+    },
+    {
+    "Организация":"АО 'Кросна-Банк'",
+    "ресурс":"dbo3.crosnabank.ru",
+    "Рег. номер":2607,
+    "port":"",
+    "issue":"HTTPSConnectionPool(host='dbo3.crosnabank.ru', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLError(1, '[SSL: UNKNOWN_CIPHER_RETURNED] unknown cipher returned (_ssl.c:1124)')))"
+    },
+    {
+    "Организация":"АО РНКО 'Синергия'",
+    "ресурс":"www.sinergy.ru",
+    "Рег. номер":2884,
+    "port":"443",
+    "issue":"Не поднимается коннект по 443 порту"
+    },
+    {
+    "Организация":"ИНВЕСТТОРГБАНК АО",
+    "ресурс":"www.itb.ru",
+    "Рег. номер":2763,
+    "port":"443",
+    "issue":"Не поднимается коннект по 443 порту"
+    },
+    {
+    "Организация":"КБ 'СИСТЕМА' ООО",
+    "ресурс":"sistemabank.ru",
+    "Рег. номер":2846,
+    "port":"443",
+    "issue":"Не поднимается коннект по 443 порту"
+    },
+    {
+    "Организация":"КБ 'СИСТЕМА' ООО",
+    "ресурс":"system-bank.ru",
+    "Рег. номер":2846,
+    "port":"443",
+    "issue":"Не поднимается коннект по 443 порту"
+    },
+    {
+    "Организация":"КБ 'СИСТЕМА' ООО",
+    "ресурс":"www.sistemabank.ru",
+    "Рег. номер":2846,
+    "port":"443",
+    "issue":"Не поднимается коннект по 443 порту"
+    },
+    {
+    "Организация":"КБ 'СИСТЕМА' ООО",
+    "ресурс":"www.банксистема.рф",
+    "Рег. номер":2846,
+    "port":"",
+    "issue":"Не найдена А-запись домена"
+    },
+    {
+    "Организация":"БАНК 'АГОРА' ООО",
+    "ресурс":"www.kbagora.ru",
+    "Рег. номер":3231,
+    "port":"",
+    "issue":"HTTPSConnectionPool(host='www.kbagora.ru', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLError(1, '[SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1124)')))"
+    },
+    {
+    "Организация":"АО 'СЭБ Банк'",
+    "ресурс":"sebbank.ru",
+    "Рег. номер":3235,
+    "port":"443",
+    "issue":"Не поднимается коннект по 443 порту"
+    },
+    {
+    "Организация":"АО 'СЭБ Банк'",
+    "ресурс":"www.sebbank.ru",
+    "Рег. номер":3235,
+    "port":"443",
+    "issue":"Не поднимается коннект по 443 порту"
+    },
+    {
+    "Организация":"ООО 'НКО 'Вестерн Юнион ДП Восток'",
+    "ресурс":"wumte.ru",
+    "Рег. номер":2726,
+    "port":"",
+    "issue":"HTTPSConnectionPool(host='wumte.ru', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLError(1, '[SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] sslv3 alert handshake failure (_ssl.c:1124)')))"
+    },
+    {
+    "Организация":"АО КБ 'НИБ'",
+    "ресурс":"www.nib-samara.ru",
+    "Рег. номер":2876,
+    "port":"",
+    "issue":"HTTPSConnectionPool(host='www.nib-samara.ru', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLError(1, '[SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1124)')))"
+    },
+    {
+    "Организация":"ООО 'НКО 'Вестерн Юнион ДП Восток'",
+    "ресурс":"wugostca.westernunion.ru/ui",
+    "Рег. номер":2726,
+    "port":"",
+    "issue":"HTTPSConnectionPool(host='wugostca.westernunion.ru', port=443): Max retries exceeded with url: /ui (Caused by SSLError(SSLError(1, '[SSL: UNKNOWN_CIPHER_RETURNED] unknown cipher returned (_ssl.c:1124)')))"
+    },
+    {
+    "Организация":"ООО РНКО 'Металлург'",
+    "ресурс":"www.metallurgbank.ru",
+    "Рег. номер":2877,
+    "port":"443",
+    "issue":"Не поднимается коннект по 443 порту"
+    },
+    {
+    "Организация":"'Коммерческий Индо Банк' ООО",
+    "ресурс":"cibl.ru",
+    "Рег. номер":3446,
+    "port":"",
+    "issue":"HTTPSConnectionPool(host='cibl.ru', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLError(1, '[SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] sslv3 alert handshake failure (_ssl.c:1124)')))"
+    },
+    {
+    "Организация":"РНКО 'Платежный Центр' (ООО)",
+    "ресурс":"www.restaurantpass.ru",
+    "Рег. номер":3166,
+    "port":"",
+    "issue":"HTTPSConnectionPool(host='www.restaurantpass.ru', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLError(1, '[SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1124)')))"
+    },
+    {
+    "Организация":"ООО 'Чайнасельхозбанк'",
+    "ресурс":"www.ru.abchina.com",
+    "Рег. номер":3529,
+    "port":"443",
+    "issue":"Не поднимается коннект по 443 порту"
+    },
+    {
+    "Организация":"РНКО 'Платежный Центр' (ООО)",
+    "ресурс":"www.эфг.рф",
+    "Рег. номер":3166,
+    "port":"443",
+    "issue":"Не поднимается коннект по 443 порту"
+    },
+    {
+    "Организация":"РНКО 'Платежный Центр' (ООО)",
+    "ресурс":"эфг.рф",
+    "Рег. номер":3166,
+    "port":"443",
+    "issue":"Не поднимается коннект по 443 порту"
+    },
+    {
+    "Организация":"ООО 'Чайна Констракшн Банк'",
+    "ресурс":"ru.ccb.com",
+    "Рег. номер":3515,
+    "port":"443",
+    "issue":"Не поднимается коннект по 443 порту"
+    },
+    {
+    "Организация":"ООО 'Унифондбанк'",
+    "ресурс":"www.ufb.ru",
+    "Рег. номер":3416,
+    "port":"",
+    "issue":"HTTPSConnectionPool(host='www.ufb.ru', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLError(1, '[SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1124)')))"
+    },
+    {
+    "Организация":"АО 'БАНК БЕРЕЙТ'",
+    "ресурс":"bereit.ru",
+    "Рег. номер":3505,
+    "port":"443",
+    "issue":"Не поднимается коннект по 443 порту"
+    },
+    {
+    "Организация":"АО 'БАНК БЕРЕЙТ'",
+    "ресурс":"www.bereit.ru",
+    "Рег. номер":3505,
+    "port":"443",
+    "issue":"Не поднимается коннект по 443 порту"
+    },
+    {
+    "Организация":"АО БАНК 'МОСКВА-СИТИ'",
+    "ресурс":"mcbank.ru",
+    "Рег. номер":3247,
+    "port":"443",
+    "issue":"Не поднимается коннект по 443 порту"
+    },
+    {
+    "Организация":"АО БАНК 'МОСКВА-СИТИ'",
+    "ресурс":"www.mcbank.ru",
+    "Рег. номер":3247,
+    "port":"443",
+    "issue":"Не поднимается коннект по 443 порту"
+    },
+    {
+    "Организация":"ПАО 'НИКО-БАНК'",
+    "ресурс":"www.никобанк.рф",
+    "Рег. номер":702,
+    "port":"",
+    "issue":"HTTPSConnectionPool(host=\"www.xn--80abuicnef.xn--p1ai\", port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError('hostname \"www.xn--80abuicnef.xn--p1ai\" doesn\"t match either of \"nico-bank.ru\", \"www.nico-bank.ru\"')))"
+    },
+    {
+    "Организация":"ООО 'Камкомбанк'",
+    "ресурс":"ipoteka.kamkombank.ru",
+    "Рег. номер":438,
+    "port":"",
+    "issue":"HTTPSConnectionPool(host='ipoteka.kamkombank.ru', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self signed certificate (_ssl.c:1124)')))"
+    },
+    {
+    "Организация":"ПАО 'СКБ-банк'",
+    "ресурс":"eng.skbbank.ru",
+    "Рег. номер":705,
+    "port":"",
+    "issue":"HTTPSConnectionPool(host=\"eng.skbbank.ru\", port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError('hostname \"eng.skbbank.ru\" doesn\"t match either of \"skbbank.ru\", \"www.skbbank.ru\"')))"
+    },
+    {
+    "Организация":"ПАО 'СКБ-банк'",
+    "ресурс":"ocenka.skbbank.ru",
+    "Рег. номер":705,
+    "port":"",
+    "issue":"HTTPSConnectionPool(host=\"ocenka.skbbank.ru\", port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError( hostname \"ocenka.skbbank.ru\" doesn\"t match either of \"skbbank.ru\", \"www.skbbank.ru\"')))"
+    },
+    {
+    "Организация":"АО КБ 'ВАКОБАНК'",
+    "ресурс":"вакобанк.рф",
+    "Рег. номер":1291,
+    "port":"",
+    "issue":"HTTPSConnectionPool(host=\"xn--80aacc5bcuf.xn--p1ai\", port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError('hostname \"xn--80aacc5bcuf.xn--p1ai\" doesn\"t match either of \"*.mart.ru\", \"mart.ru\"')))"
+    },
+    {
+    "Организация":"АО КБ 'ВАКОБАНК'",
+    "ресурс":"www.вакобанк.рф",
+    "Рег. номер":1291,
+    "port":"",
+    "issue":"HTTPSConnectionPool(host=\"www.xn--80aacc5bcuf.xn--p1ai\", port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError('hostname \"www.xn--80aacc5bcuf.xn--p1ai\" doesn\"t match either of \"*.mart.ru\", \"mart.ru\"')))"
+    },
+    {
+    "Организация":"АО КБ 'ВАКОБАНК'",
+    "ресурс":"www.vakobank.com",
+    "Рег. номер":1291,
+    "port":"",
+    "issue":"HTTPSConnectionPool(host=\"www.vakobank.com\", port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError('hostname \"www.vakobank.com\" doesn\"t match either of \"*.mart.ru\", \"mart.ru\"')))"
+    },
+    {
+    "Организация":"ПАО 'Донкомбанк'",
+    "ресурс":"doncombank.ru",
+    "Рег. номер":492,
+    "port":"",
+    "issue":"HTTPSConnectionPool(host=\"doncombank.ru\", port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError('hostname \"doncombank.ru\" doesn\"t match \"ibank.doncombank.ru\"')))"
+    },
+    {
+    "Организация":"ПАО 'Донкомбанк'",
+    "ресурс":"donkombank.ru",
+    "Рег. номер":492,
+    "port":"",
+    "issue":"HTTPSConnectionPool(host=\"donkombank.ru\", port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError('hostname \"donkombank.ru\" doesn\"t match \"ibank.doncombank.ru\"')))"
+    },
+    {
+    "Организация":"ПАО 'Донкомбанк'",
+    "ресурс":"www.donkombank.ru",
+    "Рег. номер":492,
+    "port":"",
+    "issue":"HTTPSConnectionPool(host=\"www.donkombank.ru\", port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError('hostname \"www.donkombank.ru\" doesn\"t match \"ibank.doncombank.ru\"')))"
+    },
+    {
+    "Организация":"АО 'ПЕРВОУРАЛЬСКБАНК'",
+    "ресурс":"бибикэш.рф",
+    "Рег. номер":965,
+    "port":"443",
+    "issue":"Не поднимается коннект по 443 порту"
+    },
+    {
+    "Организация":"ООО 'АЛТЫНБАНК'",
+    "ресурс":"altynbank.com",
+    "Рег. номер":2070,
+    "port":"",
+    "issue":"HTTPSConnectionPool(host=\"altynbank.com\", port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError('hostname \"altynbank.com\" doesn\"t match either of \"*.timeweb.ru\", \"timeweb.ru\"')))"
+    },
+    {
+    "Организация":"ООО 'Бланк банк'",
+    "ресурс":"bankvesta.ru",
+    "Рег. номер":2368,
+    "port":"",
+    "issue":"HTTPSConnectionPool(host=\"bankvesta.ru\", port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError('hostname \"bankvesta.ru\" doesn\"t match either of \"*.ibv.ru\", \"ibv.ru\"')))"
+    },
+    {
+    "Организация":"МКБ 'Дон-Тексбанк' ООО",
+    "ресурс":"donteksbank.ru",
+    "Рег. номер":1818,
+    "port":"",
+    "issue":"HTTPSConnectionPool(host=\"donteksbank.ru\", port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError('hostname \"donteksbank.ru\" doesn\"t match either of \"*.hosting.reg.ru\", \"hosting.reg.ru\"')))"
+    },
+    {
+    "Организация":"ООО Банк Оранжевый",
+    "ресурс":"h012501857.nichost.ru",
+    "Рег. номер":1659,
+    "port":"",
+    "issue":"HTTPSConnectionPool(host=\"h012501857.nichost.ru\", port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError('hostname \"h012501857.nichost.ru\" doesn\"t match either of \"*.bankorange.ru\", \"bankorange.ru\"')))"
+    },
+    {
+    "Организация":"РНКО 'ПРОМСВЯЗЬИНВЕСТ' (ООО)",
+    "ресурс":"www.psib.ru",
+    "Рег. номер":2761,
+    "port":"",
+    "issue":"HTTPSConnectionPool(host=\"www.psib.ru\", port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError('hostname \"www.psib.ru\" doesn\"t match either of \"*.timeweb.ru\", \"timeweb.ru\"')))"
+    },
+    {
+    "Организация":"АО Банк 'Развитие-Столица'",
+    "ресурс":"банк-развитие-столица.рф",
+    "Рег. номер":3013,
+    "port":"",
+    "issue":"HTTPSConnectionPool(host=\"xn-----6kcbbbkyqlacrwuz0azpe1g.xn--p1ai\", port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError('hostname \"xn-----6kcbbbkyqlacrwuz0azpe1g.xn--p1ai\" doesn\"t match either of \"dcapital.ru\", \"www.dcapital.ru\"')))"
+    },
+    {
+    "Организация":"АО Банк 'Развитие-Столица'",
+    "ресурс":"развитие-столица.рф",
+    "Рег. номер":3013,
+    "port":"",
+    "issue":"HTTPSConnectionPool(host=\"xn----7sbbgpkiac3a6aquke1e.xn--p1ai\", port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError('hostname \"xn----7sbbgpkiac3a6aquke1e.xn--p1ai\" doesn\"t match either of \"dcapital.ru\", \"www.dcapital.ru\"')))"
+    },
+    {
+    "Организация":"РНКО 'Платежный Центр' (ООО)",
+    "ресурс":"koronapay.by",
+    "Рег. номер":3166,
+    "port":"",
+    "issue":"HTTPSConnectionPool(host=\"koronapay.by\", port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError('hostname \"koronapay.by\" doesn\"t match either of \"koronapay.com\", \"www.koronapay.com\"')))"
+    },
+    {
+    "Организация":"ООО 'ПроКоммерцБанк'",
+    "ресурс":"www.procombank.ru",
+    "Рег. номер":2996,
+    "port":"",
+    "issue":"HTTPSConnectionPool(host=\"www.procombank.ru\", port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError('hostname \"www.procombank.ru\" doesn\"t match either of \"*.timeweb.ru\", \"timeweb.ru\"')))"
+    },
+    {
+    "Организация":"ООО 'ПроКоммерцБанк'",
+    "ресурс":"www.procommercebank.ru",
+    "Рег. номер":2996,
+    "port":"",
+    "issue":"HTTPSConnectionPool(host=\"www.procommercebank.ru\", port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError('hostname \"www.procommercebank.ru\" doesn\"t match either of \"*.timeweb.ru\", \"timeweb.ru\"')))"
+    },
+    {
+    "Организация":"'СеверСтройБанк' АО",
+    "ресурс":"www.severstroybank35.ru",
+    "Рег. номер":3507,
+    "port":"",
+    "issue":"HTTPSConnectionPool(host=\"www.severstroybank35.ru\", port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError('hostname \"www.severstroybank35.ru\" doesn\"t match \"bc.ssb35.ru\"')))"
+    },
+    {
+    "Организация":"ООО 'Банк РСИ'",
+    "ресурс":"www.bankrsi.ru",
+    "Рег. номер":3415,
+    "port":"",
+    "issue":"HTTPSConnectionPool(host=\"www.bankrsi.ru\", port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError('hostname \"www.bankrsi.ru\" doesn\"t match either of \"*.mtw.ru\", \"mtw.ru\"')))"
+    },
+    {
+    "Организация":"КБ 'Континенталь' ООО",
+    "ресурс":"www.bankkontinental.ru",
+    "Рег. номер":3184,
+    "port":"",
+    "issue":"HTTPSConnectionPool(host=\"www.bankkontinental.ru\", port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError('hostname \"www.bankkontinental.ru\" doesn\"t match either of \"*.hosting.reg.ru\", \"hosting.reg.ru\"')))"
+    }
+    ]
+    }

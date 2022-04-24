@@ -1,0 +1,73 @@
+{
+  "issues": [{
+      "Организация": "АО БАНК 'СНГБ'",
+      "ресурс": "https://dp.sngb.ru",
+      "Рег. номер": 588,
+      "port": 443,
+      "issue": "404 Client Error: Not Found for url: https://dp.sngb.ru/"
+    },
+    {
+      "Организация": "АО 'АЛЬФА-БАНК'",
+      "ресурс": "https://anketa.alfabank.ru/kupilegko",
+      "Рег. номер": 1326,
+      "port": 443,
+      "issue": "404 Client Error: Not Found for url: https://anketa.alfabank.ru/kupilegko"
+    },
+    {
+      "Организация": "АО 'ПЕРВОУРАЛЬСКБАНК'",
+      "ресурс": "https://realestate.pervbank.ru",
+      "Рег. номер": 965,
+      "port": 443,
+      "issue": "404 Client Error: Not Found for url: https://realestate.pervbank.ru/"
+    },
+    {
+      "Организация": "АО 'ПЕРВОУРАЛЬСКБАНК'",
+      "ресурс": "https://depozits.ru",
+      "Рег. номер": 965,
+      "port": 443,
+      "issue": "404 Client Error: Not Found for url: https://depozits.ru/"
+    },
+    {
+      "Организация": "КИВИ Банк (АО)",
+      "ресурс": "https://qiwi.com/qiwiba",
+      "Рег. номер": 2241,
+      "port": 443,
+      "issue": "404 Client Error: Not Found for url: https://qiwi.com/qiwiba"
+    },
+    {
+      "Организация": "АО АКБ 'НОВИКОМБАНК'",
+      "ресурс": "https://www.novikom.ru",
+      "Рег. номер": 2546,
+      "port": 443,
+      "issue": "404 Client Error: Not Found for url: https://www.novikom.ru/"
+    },
+    {
+      "Организация": "АО 'Тексбанк'",
+      "ресурс": "https://ipoteka.texbank.ru",
+      "Рег. номер": 2756,
+      "port": 443,
+      "issue": "404 Client Error: Not Found for url: https://ipoteka.texbank.ru/"
+    },
+    {
+      "Организация": "РНКО 'Платежный Центр' (ООО)",
+      "ресурс": "https://rnko.korona.net/cards",
+      "Рег. номер": 3166,
+      "port": 443,
+      "issue": "404 Client Error: Not Found for url: https://rnko.korona.net/cards"
+    },
+    {
+      "Организация": "'Мерседес-Бенц Банк Рус' ООО",
+      "ресурс": "https://ice.daimler-financialservices.com/ice/landing?m=ru&l=ru",
+      "Рег. номер": 3473,
+      "port": 443,
+      "issue": "404 Client Error: Not Found for url: https://ice.daimler-financialservices.com/ice/landing?m=ru&l=ru"
+    },
+    {
+      "Организация": "РНКО 'Платежный Центр' (ООО)",
+      "ресурс": "https://www.rnko.korona.net/cards",
+      "Рег. номер": 3166,
+      "port": 443,
+      "issue": "404 Client Error: Not Found for url: https://rnko.korona.net/cards"
+    }
+  ]
+}

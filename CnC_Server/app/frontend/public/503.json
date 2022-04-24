@@ -1,0 +1,10 @@
+{
+  "issues": [{
+      "Организация": "ПАО 'АК БАРС' БАНК",
+      "ресурс": "https://bg.akbars.ru",
+      "Рег. номер": 2590,
+      "port": 443,
+      "issue": "503 Server Error: Service Unavailable for url: https://bg.akbars.ru/"
+    }
+  ]
+}

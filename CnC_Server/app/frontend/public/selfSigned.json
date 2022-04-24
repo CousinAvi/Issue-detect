@@ -1,0 +1,24 @@
+{
+  "issues": [{
+      "Организация": "АО 'Кубаньторгбанк'",
+      "ресурс": "bktb.ru",
+      "Рег. номер": 478,
+      "port": "",
+      "issue": "HTTPSConnectionPool(host='bktb.ru', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, 'SSL: CERTIFICATE_VERIFY_FAILED certificate verify failed: self signed certificate (_ssl.c:1124)')))"
+    },
+    {
+      "Организация": "АО 'Кубаньторгбанк'",
+      "ресурс": "www.bktb.ru",
+      "Рег. номер": 478,
+      "port": "",
+      "issue": "HTTPSConnectionPool(host='www.bktb.ru', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, 'SSL: CERTIFICATE_VERIFY_FAILED certificate verify failed: self signed certificate (_ssl.c:1124)')))"
+    },
+    {
+      "Организация": "ООО КБ 'ВНЕШФИНБАНК'",
+      "ресурс": "внешфинбанк.рф",
+      "Рег. номер": 3173,
+      "port": "",
+      "issue": "HTTPSConnectionPool(host='xn--80abcmpoqcc9d0b.xn--p1ai', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, 'SSL: CERTIFICATE_VERIFY_FAILED certificate verify failed: self signed certificate (_ssl.c:1124)')))"
+    }
+  ]
+}
