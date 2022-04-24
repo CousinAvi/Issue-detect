@@ -6,7 +6,9 @@ if db_port == ":":
     db_port = ""
 
 db_user = os.getenv("DB_USER", default="postgres")
-db_pass = os.getenv("POSTGRES_PASSWORD", default="Ep2L3H18tRoWbnzVmYNVIKotSv6srJw/EUbFpiMj4YE=")
+db_pass = os.getenv(
+    "POSTGRES_PASSWORD", default="Ep2L3H18tRoWbnzVmYNVIKotSv6srJw/EUbFpiMj4YE="
+)
 
 db = os.getenv("POSTGRES_DB", "magnitogorsk")
 

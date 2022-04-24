@@ -10,5 +10,6 @@ def getTLSVersion(hostname):
             # print(ssock.version())
             return str(ssock.version())
 
+
 # hostname = 'msun.ru'
 # getTLSVersion(hostname)

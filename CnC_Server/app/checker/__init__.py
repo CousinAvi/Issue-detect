@@ -20,8 +20,8 @@ def getTimestamp(year, month, day):
 # Функция поиска DNS-записи
 def dnsResolve(domain):
     try:
-        domain.index('/')
-        domain = domain[:domain.index('/')]
+        domain.index("/")
+        domain = domain[: domain.index("/")]
     except ValueError:
         pass
     try:
@@ -38,8 +38,8 @@ def dnsResolve(domain):
 def netcat(orgName, regNumber, hostname, port):
     initialHostname = hostname
     try:
-        hostname.index('/')
-        hostname = hostname[:hostname.index('/')]
+        hostname.index("/")
+        hostname = hostname[: hostname.index("/")]
     except ValueError:
         pass
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -48,38 +48,63 @@ def netcat(orgName, regNumber, hostname, port):
         s.connect((hostname, port))
     except:
         # print("Не поднимается коннект по порту")
-        return {'company': orgName, 'service': initialHostname, 'reg_number': regNumber, 'port': '443',
-                'issue': 'Не поднимается коннект по 443 порту'}
+        return {
+            "company": orgName,
+            "service": initialHostname,
+            "reg_number": regNumber,
+            "port": "443",
+            "issue": "Не поднимается коннект по 443 порту",
+        }
 
     s.settimeout(None)
     s.close()
 
 
 # Запрашивает service и выдает ошибку, если такая была при запросе веб-страницы
-def checkHttpError(orgName, regNumber, port, hostname=None, verifySSL=True):  # hostname = https://...
+def checkHttpError(
+    orgName, regNumber, port, hostname=None, verifySSL=True
+):  # hostname = https://...
     try:
         headers = {
-            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36"
+        }
         response = requests.get(hostname, verify=verifySSL, headers=headers, timeout=5)
         response.raise_for_status()
 
-    except (requests.exceptions.SSLError, requests.HTTPError, requests.exceptions.Timeout, requests.ConnectionError) as exception:
-        return {'company': orgName, 'service': hostname, 'reg_number': regNumber, 'port': port,
-                'issue': f'{exception}'}
+    except (
+        requests.exceptions.SSLError,
+        requests.HTTPError,
+        requests.exceptions.Timeout,
+        requests.ConnectionError,
+    ) as exception:
+        return {
+            "company": orgName,
+            "service": hostname,
+            "reg_number": regNumber,
+            "port": port,
+            "issue": f"{exception}",
+        }
 
 
 def whoIs(orgName, regNumber, hostname=None):
     w = whois.whois(hostname)
     # print(w)
     expDate = str(w["expiration_date"])
-    timeMassiv = expDate.split()[0].split('-')
+    timeMassiv = expDate.split()[0].split("-")
     year, month, day = range(3)
 
     currentTime = int(time.time())  # Текущее время
-    expTime = getTimestamp(int(timeMassiv[year]), int(timeMassiv[month]), int(timeMassiv[day]))
+    expTime = getTimestamp(
+        int(timeMassiv[year]), int(timeMassiv[month]), int(timeMassiv[day])
+    )
     if currentTime > expTime:
-        return {'company': orgName, 'service': hostname, 'reg_number': regNumber, 'port': '',
-                'issue': 'Срок аренды домена истек'}
+        return {
+            "company": orgName,
+            "service": hostname,
+            "reg_number": regNumber,
+            "port": "",
+            "issue": "Срок аренды домена истек",
+        }
 
 
 def main(hostname, orgName, regNumber, port=443):
@@ -89,8 +114,15 @@ def main(hostname, orgName, regNumber, port=443):
     # 1. Проверяем резолвится ли service и поднимается ли коннект по порту (443)
     if dnsResolve(hostname) == []:
         print("Ресурс не резолвится")
-        errors.append({'company': orgName, 'service': hostname, 'reg_number': regNumber, 'port': '',
-                       'issue': 'Не найдена А-запись домена'})
+        errors.append(
+            {
+                "company": orgName,
+                "service": hostname,
+                "reg_number": regNumber,
+                "port": "",
+                "issue": "Не найдена А-запись домена",
+            }
+        )
         return errors
     # пытаемся достучаться до serviceа по порту, елси нет --> выход
     netcatResult = netcat(orgName, regNumber, hostname, port)
@@ -105,26 +137,41 @@ def main(hostname, orgName, regNumber, port=443):
         verifySSL = False  # необходимо чтобы requests в checkHttpError запросил service
 
     # Проверка на самоподписанный и крипту в серте
-    hostname = hostname.replace('www.', '')
+    hostname = hostname.replace("www.", "")
     try:
         headers = {
-            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36"
+        }
 
-        requests.get('https://' + hostname, headers=headers, timeout=5)
+        requests.get("https://" + hostname, headers=headers, timeout=5)
     except (
-    requests.exceptions.SSLError, requests.exceptions.TooManyRedirects, requests.exceptions.Timeout) as instance:
+        requests.exceptions.SSLError,
+        requests.exceptions.TooManyRedirects,
+        requests.exceptions.Timeout,
+    ) as instance:
         errors.append(
-            {'company': orgName, 'service': hostname, 'reg_number': regNumber, 'port': '', 'issue': f'{instance}'})
+            {
+                "company": orgName,
+                "service": hostname,
+                "reg_number": regNumber,
+                "port": "",
+                "issue": f"{instance}",
+            }
+        )
         verifySSL = False
 
     # 2. Проверяем ошибки при запросе к веб-странице в HTTP (403, 500 etc)
     if verifySSL:
-        httpErrorsResult = checkHttpError(orgName, regNumber, 443, 'https://' + hostname, verifySSL)
+        httpErrorsResult = checkHttpError(
+            orgName, regNumber, 443, "https://" + hostname, verifySSL
+        )
         if httpErrorsResult is not None:
             if errors.count(httpErrorsResult) != 0:
                 errors.append(httpErrorsResult)
     else:
-        httpErrorsResult = checkHttpError(orgName, regNumber, 80, 'http://' + hostname, verifySSL)
+        httpErrorsResult = checkHttpError(
+            orgName, regNumber, 80, "http://" + hostname, verifySSL
+        )
         if httpErrorsResult is not None:
             if errors.count(httpErrorsResult) != 0:
                 errors.append(httpErrorsResult)
@@ -141,13 +188,24 @@ def main(hostname, orgName, regNumber, port=443):
     if verifySSL:
         try:
             currentTLS = getTLSVersion(hostname)
-            if currentTLS == "SSLv3" or currentTLS == "TLSv1" or currentTLS == "TLSv1.1":
-                errors.append({'company': orgName, 'service': hostname, 'reg_number': regNumber,
-                               'issue': f'Используется устаревший метод шифрования канала {currentTLS}'})
+            if (
+                currentTLS == "SSLv3"
+                or currentTLS == "TLSv1"
+                or currentTLS == "TLSv1.1"
+            ):
+                errors.append(
+                    {
+                        "company": orgName,
+                        "service": hostname,
+                        "reg_number": regNumber,
+                        "issue": f"Используется устаревший метод шифрования канала {currentTLS}",
+                    }
+                )
         except:
             pass
             # errors.append({'company': orgName, 'service': hostname, 'reg_number': regNumber, 'port': '', 'issue': "Сертификат выпущен УЦ R3 (Let's encrypt)'"}) # TODO Внести как предупреждение о том, что уровень серта не очень для ФО
     return errors
+
 
 # Берем инфу из бд и проверяем все serviceы
 # checkFromSQL()

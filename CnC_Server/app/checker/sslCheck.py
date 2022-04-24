@@ -14,7 +14,7 @@ def getTimestamp(year, month, day):
     return int(unixtime)
 
 
-HostInfo = namedtuple(field_names='cert hostname peername', typename='HostInfo')
+HostInfo = namedtuple(field_names="cert hostname peername", typename="HostInfo")
 
 
 def get_certificate(hostname, port):
@@ -64,20 +64,20 @@ def get_issuer(cert):
 
 
 def print_basic_info(hostinfo):
-    s = '''» {hostname} « … {peername}
+    s = """» {hostname} « … {peername}
     \tcommonName: {commonname}
     \tSAN: {SAN}
     \tissuer: {issuer}
     \tnotBefore: {notbefore}
     \tnotAfter:  {notafter}
-    '''.format(
+    """.format(
         hostname=hostinfo.hostname,
         peername=hostinfo.peername,
         commonname=get_common_name(hostinfo.cert),
         SAN=get_alt_names(hostinfo.cert),
         issuer=get_issuer(hostinfo.cert),
         notbefore=hostinfo.cert.not_valid_before,
-        notafter=hostinfo.cert.not_valid_after
+        notafter=hostinfo.cert.not_valid_after,
     )
 
 
@@ -85,15 +85,20 @@ def verifyExpTime(cert, hostname):
     # verify notAfter/notBefore, CA trusted, servername/sni/hostname
     notAfter = str(cert.not_valid_after)
 
-    timeMassiv = notAfter.split()[0].split('-')
+    timeMassiv = notAfter.split()[0].split("-")
 
     year, month, day = range(3)
 
     currentTime = int(time.time())  # Текущее время
-    notAfterStamp = getTimestamp(int(timeMassiv[year]), int(timeMassiv[month]), int(timeMassiv[day]))
+    notAfterStamp = getTimestamp(
+        int(timeMassiv[year]), int(timeMassiv[month]), int(timeMassiv[day])
+    )
     if currentTime > notAfterStamp:
-        return {'service': hostname, 'port': '', 'issue': 'Сертификат истек, ресурс недоверенный'}
-
+        return {
+            "service": hostname,
+            "port": "",
+            "issue": "Сертификат истек, ресурс недоверенный",
+        }
 
 
 def CheckSSLExp(org_name, hostname, port):

@@ -34,9 +34,7 @@ WEBHOOK_URL = "https://detect.site" + WEBHOOK_PATH
 async def on_startup():
     webhook_info = await bot.get_webhook_info()
     if webhook_info.url != WEBHOOK_URL:
-        await bot.set_webhook(
-            url=WEBHOOK_URL
-        )
+        await bot.set_webhook(url=WEBHOOK_URL)
 
 
 @app.post(WEBHOOK_PATH, include_in_schema=False)
@@ -90,33 +88,41 @@ async def get_ml_event(event: schemas.MlEvent, db: Session = Depends(get_db)):
 {event.comment}
     """
 
-    message = await bot.send_message(-661257758, message_text + "\nПроверка..." ,parse_mode='Markdown')
+    message = await bot.send_message(
+        -661257758, message_text + "\nПроверка...", parse_mode="Markdown"
+    )
 
-    bank: models.OrganizationWithPortals = db.query(models.OrganizationWithPortals).filter(models.Organization.name.ilike(f'%{event.company}%')).first()
+    bank: models.OrganizationWithPortals = (
+        db.query(models.OrganizationWithPortals)
+        .filter(models.Organization.name.ilike(f"%{event.company}%"))
+        .first()
+    )
+
     if bank is not None:
         infos = []
+
         for portal in bank.portals:
             infos.extend(checker.main(portal.address, bank.name, bank.reg_number))
-        resulting_text = message_text + '\n'
+
+        resulting_text = message_text + "\n"
+
         for info_ind in range(len(infos)):
             resulting_text += aiogram.utils.markdown.code(f"{info_ind+1}:\n")
             resulting_text += aiogram.utils.markdown.bold("Сервис: ")
-            resulting_text += infos[info_ind]["service"]+"\n\n"
-            resulting_text += aiogram.utils.markdown.code(infos[info_ind]["issue"])+"\n\n"
+            resulting_text += infos[info_ind]["service"] + "\n\n"
+            resulting_text += (
+                aiogram.utils.markdown.code(infos[info_ind]["issue"]) + "\n\n"
+            )
 
         await bot.edit_message_text(
-            resulting_text,
-            message.chat.id,
-            message.message_id,
-            parse_mode='Markdown'
+            resulting_text, message.chat.id, message.message_id, parse_mode="Markdown"
         )
     else:
         await bot.edit_message_text(
-            message_text,
-            message.chat.id,
-            message.message_id,
-            parse_mode='Markdown'
+            message_text, message.chat.id, message.message_id, parse_mode="Markdown"
         )
+
+
 @app.get("/api/v1/test_message")
 async def test():
     await bot.send_message(-661257758, "Test Message")

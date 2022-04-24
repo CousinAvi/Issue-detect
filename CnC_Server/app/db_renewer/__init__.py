@@ -46,9 +46,6 @@ class Renewer:
                 stripDomain = domain.replace("http://", "")
             else:
                 stripDomain = domain.replace("https://", "")
-            print(
-                f"Insert into domain_fin values ('{orgName}',{int(regNumber)},'{stripDomain}')"
-            )
             db = next(get_db())
             organization = (
                 db.query(models.Organization)
@@ -58,8 +55,9 @@ class Renewer:
             if organization is None:
                 db.add(models.Organization(reg_number=int(regNumber), name=orgName))
             same_portal = (
-                db.query(models.OrganizationPortal).
-                    filter(models.OrganizationPortal.address==stripDomain).one_or_none()
+                db.query(models.OrganizationPortal)
+                .filter(models.OrganizationPortal.address == stripDomain)
+                .one_or_none()
             )
             if same_portal is None:
                 db.add(
@@ -77,7 +75,7 @@ class Renewer:
         revoked = self.revokeList(url)
         organization = mould[3]
         domainAfterCheck = []
-        iskl = [
+        exceptions = [
             "vk.com",
             "youtube.com",
             "facebook.com",
@@ -88,35 +86,33 @@ class Renewer:
             "odnoklassniki",
             "t.me/",
         ]
-        hasSocial = False
+        is_social = False
         if not revoked:
             for link in organization:
-                for social in iskl:
-                    if link.find(social) != -1:
-                        hasSocial = True
+                for social in exceptions:
+                    if social in link:
+                        is_social = True
                         break
-                if not hasSocial:
+                if not is_social:
                     domainAfterCheck.append(link)
         if domainAfterCheck != []:
             self.writeDb(str(orgName), orgNumber, domainAfterCheck)
 
     def run(self):
 
+        db = next(get_db())
+        db.query(models.OrganizationPortal).delete()
+        db.query(models.Organization).delete()
+        db.commit()
+
         if self.currently_run.value == 1:
             return
         self.currently_run.value = 1
-
         response = requests.get("https://cbr.ru/banking_sector/credit/cowebsites/")
         html = response.text
         soup = BeautifulSoup(html, "lxml")
         table = soup.find_all("table")
         df = pd.read_html(str(table))[0]
-
-        # db: Session = next(get_db())
-        #
-        # db.delete(models.OrganizationPortal)
-        # db.delete(models.Organization)
-        # db.commit()
 
         orgNameMassiv = [
             orgName for orgName in df["Наименование кредитной организации"].values
